@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import { toast } from "react-hot-toast";
 import { X } from "lucide-react";
 
 import IconButton from "@/components/ui/icon-button";
@@ -20,6 +19,7 @@ const CartItem: React.FC<CartItemProps> = ({
     const onRemove = () => {
         cart.removeItem(data.id);
     }
+    console.log(data?.credits);
     return (
         <li className="flex py-6 border-b">
             <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
@@ -37,6 +37,9 @@ const CartItem: React.FC<CartItemProps> = ({
                     </div>
                 <div className="mt-1 flex text-sm">
                     <p className="text-gray-500">
+                        Credits: {data.credits}
+                    </p>
+                    <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">
                         {data.color.name}
                     </p>
                     <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">
